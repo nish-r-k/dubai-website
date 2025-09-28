@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+#after-panel::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 4px;
+    height: 100%;
+    background-color: white;
+    cursor: ew-resize;
+    transform: translateX(50%);
+}
+
+#after-panel::before {
+    content: '‹›';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(50%, -50%);
+    background-color: white;
+    color: #3b82f6;
+    border-radius: 9999px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.animate-blueprint-line {
+    stroke-dasharray: 2500;
+    stroke-dashoffset: 2500;
+    animation: draw-line 6s ease-in-out infinite;
+}
+
+@keyframes draw-line {
+    0% {
+        stroke-dashoffset: 2500;
+        opacity: 0;
+    }
+
+    25% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    75% {
+        stroke-dashoffset: 0;
+        opacity: 1;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animate-slow-spin {
+    animation: spin 20s linear infinite;
+}
+
+@keyframes event-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-event-fade-in {
+    opacity: 0;
+
+    animation: event-fade-in 0.5s ease-out forwards;
+}
+
+.star {
+    fill: rgba(255, 255, 255, 0.7);
+    animation: twinkle 5s ease-in-out infinite;
+}
+
+.star:nth-child(3n) {
+    animation-delay: 0.5s;
+}
+
+.star:nth-child(5n) {
+    animation-delay: 1.2s;
+}
+
+.star:nth-child(7n) {
+    animation-delay: 2s;
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: 0.5;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+
+.plant-root,
+.plant-stem {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.5);
+    stroke-width: 2;
+    stroke-dasharray: 150;
+
+    stroke-dashoffset: 150;
+
+}
+
+.plant-value,
+.plant-mission,
+.plant-vision {
+    fill: white;
+    font-size: 12px;
+    font-family: sans-serif;
+    opacity: 0;
+
+}
+
+.plant-bloom {
+    fill: rgba(59, 130, 246, 0.7);
+
+    opacity: 0;
+    transform: scale(0);
+}
+
+.ticker-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.ticker-move {
+    display: inline-block;
+    animation: ticker 40s linear infinite;
+}
+
+@keyframes ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}

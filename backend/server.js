@@ -1,0 +1,80 @@
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+
+const app = express();
+const port = process.env.PORT || 3001;
+
+app.use(cors());
+app.use(express.json());
+
+app.post("/api/send-partnership-email", async (req, res) => {
+	const { name, company, email, proposal } = req.body;
+
+	const mail_user = process.env.MAIL_USER;
+	const mail_pass = process.env.MAIL_PASS;
+
+	const transporter = nodemailer.createTransport({
+		service: "gmail",
+		auth: {
+			user: mail_user,
+			pass: mail_pass,
+		},
+	});
+
+	const mailOptions = {
+		from: `"${name}" <${email}>`,
+		to: "hr@sisunitech.com",
+		subject: `New Partnership Proposal from ${company}`,
+		html: `... (same email HTML as before) ...`,
+	};
+
+	try {
+		await transporter.sendMail(mailOptions);
+		res.status(200).json({ message: "Email sent successfully!" });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: "Failed to send email." });
+	}
+});
+
+app.post("/api/send-general-email", async (req, res) => {
+	const { email, question } = req.body;
+
+	const mail_user = process.env.MAIL_USER;
+	const mail_pass = process.env.MAIL_PASS;
+
+	const transporter = nodemailer.createTransport({
+		service: "gmail",
+		auth: {
+			user: mail_user,
+			pass: mail_pass,
+		},
+	});
+
+	const mailOptions = {
+		from: `"${email}" <${email}>`,
+		to: "hr@sisunitech.com",
+		subject: `New General Question from ${email}`,
+		html: `
+          <h2>New General Question</h2>
+          <p><strong>From:</strong> ${email}</p>
+          <hr>
+          <h3>Question:</h3>
+          <p>${question.replace(/\n/g, "<br>")}</p>
+        `,
+	};
+
+	try {
+		await transporter.sendMail(mailOptions);
+		res.status(200).json({ message: "Email sent successfully!" });
+	} catch (error) {
+		console.error(error);
+		res.status(500).json({ error: "Failed to send email." });
+	}
+});
+
+app.listen(port, () => {
+	console.log(`Server is running on port ${port}`);
+});
