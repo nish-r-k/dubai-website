@@ -1,6 +1,5 @@
 import CareerBlueprintHero from "../components/CareerBlueprintHero";
 import CareerFoundationSection from "../components/CareerFoundationSection";
-import PillarsSection from "../components/PillarsSection";
 import CareerFrameworkSection from "../components/CareerFrameworkSection";
 import CornerstoneSection from "../components/CornerstoneSection";
 const Career = () => {
@@ -8,7 +7,7 @@ const Career = () => {
 		<div>
 			<CareerBlueprintHero />
 			<CareerFoundationSection />
-			<PillarsSection />
+
 			<CareerFrameworkSection />
 			<CornerstoneSection />
 		</div>
