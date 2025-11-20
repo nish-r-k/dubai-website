@@ -17,7 +17,7 @@ export default function ProjectBooking() {
 				<InlineWidget
 					url="https://calendly.com/sisunitechnology/30min"
 					styles={{
-						height: "700px",
+						height: "800px",
 					}}
 				/>
 			</div>

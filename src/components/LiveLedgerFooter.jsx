@@ -19,7 +19,7 @@ function LiveLedgerFooter() {
 	}, []);
 
 	return (
-		<footer className="bg-black text-gray-400 font-mono">
+		<footer className="bg-black text-gray-400 font-sans">
 			<div className="border-t border-b border-gray-800 py-3 ticker-wrap">
 				<div className="ticker-move">
 					{[...tickerItems, ...tickerItems].map((item, index) => (
@@ -44,17 +44,17 @@ function LiveLedgerFooter() {
 						<h3 className="font-semibold text-white mb-4">Services</h3>
 						<ul className="space-y-2 text-sm">
 							<li>
-								<a href="/#build" className="hover:text-white">
+								<a href="/services" className="hover:text-white">
 									Digital Platforms
 								</a>
 							</li>
 							<li>
-								<a href="/#protect" className="hover:text-white">
+								<a href="/services" className="hover:text-white">
 									CyberSecurity
 								</a>
 							</li>
 							<li>
-								<a href="/#optimize" className="hover:text-white">
+								<a href="/services" className="hover:text-white">
 									Automation
 								</a>
 							</li>

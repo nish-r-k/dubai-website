@@ -61,15 +61,6 @@ export default function DGEcosystemHero() {
 				))}
 			</svg>
 
-			<div
-				className="fixed w-4 h-4 bg-white rounded-full pointer-events-none z-50 shadow-2xl shadow-white"
-				style={{
-					transform: `translate(${mousePosition.x - 8}px, ${
-						mousePosition.y - 8
-					}px)`,
-				}}
-			/>
-
 			<div className="relative z-10 p-4">
 				<h1 className="text-5xl md:text-7xl font-bold">
 					Our mission is a garden we grow together.

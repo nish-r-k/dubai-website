@@ -19,7 +19,7 @@ export default function DgEcosystemCTA() {
 						Plant a Project
 					</a>
 					<a
-						href="/future"
+						href="/careers"
 						className="w-full sm:w-auto bg-transparent border-2 border-gray-600 text-gray-300 font-bold text-lg py-4 px-10 rounded-full 
                        hover:bg-gray-800 hover:border-gray-700 hover:text-white
                        transform hover:-translate-y-1 transition-all duration-300"

@@ -9,6 +9,9 @@ import Career from "./pages/Career";
 import Impact from "./pages/Impact";
 import DigitalGarden from "./pages/DigitalGarden";
 import ScrollToTop from "./components/ScrollToTop";
+import Chatbot from "./components/Chatbot";
+import CareerDetails from "./components/CareerDetails";
+import Chat from "./components/Chat"
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -21,9 +24,13 @@ const App = () => {
 				<Route path="/services" element={<Services />}></Route>
 				<Route path="/contact" element={<ContactUs />}></Route>
 				<Route path="/careers" element={<Career />}></Route>
+				<Route path="/careers/:title" element={<CareerDetails />} />
 				<Route path="/impact" element={<Impact />}></Route>
 				<Route path="/digital-garden" element={<DigitalGarden />}></Route>
 			</Routes>
+			{/* <Chatbot/> */}
+			<Chat/>
+			
 			<LiveLedgerFooter />
 		</BrowserRouter>
 	);

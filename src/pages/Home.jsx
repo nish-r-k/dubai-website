@@ -31,24 +31,36 @@ const Home = () => {
 					className=" max-w-2xl relative flex flex-col  items-center justify-center z-10"
 				>
 					<div className="flex flex-col justify-center sm:ml-12">
-						<h1 className="text-4xl text-white md:text-6xl font-roboto  font-extrabold tracking-tight">
+
+						<h1 className="text-4xl text-white md:text-6xl font-roboto font-extrabold tracking-tight"
+							style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8)' }}>
+
 							Engineering Tomorrow,
 							<br />
-							<span className="font-sans  text-gray-900">
+							<span className="font-sans  text-gray-200">
 								Rooted in Dubai's Spirit of Vision
 							</span>
 						</h1>
-						<p className="mt-4 text-lg md:text-xl text-gray-200 ">
+						<p className="mt-4 text-lg md:text-xl text-gray-200"
+							style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
+
 							We are reimagining the future with bold ideas, human-centered
 							design, and cutting-edge technology.
 						</p>
 						<div className="mt-6 flex justify-start gap-4">
-							<button className="bg-blue-500 flex items-center gap-1 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
+
+							<button
+								onClick={() => {
+									document.getElementById("explore-section")?.scrollIntoView({ behavior: "smooth" });
+								}}
+								className="bg-blue-500 flex items-center gap-1 hover:bg-yellow-600 text-white py-2 px-4 rounded-md"
+							>
 								Explore{" "}
 								<span>
 									<ArrowRight size={14} />
 								</span>
 							</button>
+
 						</div>
 					</div>
 				</motion.div>
@@ -59,7 +71,7 @@ const Home = () => {
 					className=" max-w-2xl relative flex flex-col items-start justify-center z-10"
 				></motion.div>
 			</section>
-			<section className="min-h-[50vh]  mx-auto px-6 md:px-12 py-12 bg-white">
+			<section id="explore-section" className="min-h-[50vh]  mx-auto px-6 md:px-12 py-12 bg-white">
 				<div className="max-w-7xl mx-auto px-2 text-left">
 					<h1 className="text-4xl md:text-6xl font-roboto font-extrabold tracking-tight">
 						Your Business Has Challenges. We Build the Engine to Overcome Them

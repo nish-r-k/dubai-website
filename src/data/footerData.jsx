@@ -19,12 +19,12 @@ export const tickerItems = [
 export const matrixLinks = {
 	Explore: [
 		{ title: "Our Impact", href: "/impact", icon: <Star size={14} /> },
-		{ title: "Digital Garden", href: "/garden", icon: <Bot size={14} /> },
-		{ title: "Future With Us", href: "/future", icon: <Briefcase size={14} /> },
+		{ title: "Digital Garden", href: "/digital-garden", icon: <Bot size={14} /> },
+		{ title: "Future With Us", href: "/careers", icon: <Briefcase size={14} /> },
 	],
 	Connect: [
 		{ title: "Let's Talk", href: "/contact", icon: <Mail size={14} /> },
-		{ title: "Twitter", href: "#", icon: <Twitter size={14} /> },
-		{ title: "LinkedIn", href: "#", icon: <Linkedin size={14} /> },
+		{ title: "Twitter", href: "/contact", icon: <Twitter size={14} /> },
+		{ title: "LinkedIn", href: "/contact", icon: <Linkedin size={14} /> },
 	],
 };
