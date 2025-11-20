@@ -82,7 +82,7 @@ function BuildSection() {
 				<div className="absolute top-0 left-0 w-full h-full bg-black/50"></div>
 			</div>
 
-			<div className="relative">
+			{/* <div className="relative">
 				<h1
 					className="text-4xl lg:text-5xl font-bold text-center mb-2 pt-20 text-white"
 					style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}
@@ -166,7 +166,104 @@ function BuildSection() {
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> */}
+			<div className="relative">
+  <h1
+    className="text-4xl lg:text-5xl font-bold text-center mb-2 pt-20 text-white drop-shadow-[0_6px_15px_rgba(0,0,0,0.45)]"
+  >
+    From Idea to Impact. Seamlessly.
+  </h1>
+
+  <div className="h-[200vh]">
+    <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+      <div id="timeline-track" ref={trackRef} className="flex">
+
+        {[
+          {
+            title: "Design with Insight",
+            description:
+              "We craft intuitive, engaging experiences based on user-centric research, ensuring your product is not only beautiful but also effective.",
+            bullets: [
+              "High-Fidelity Interactive Prototypes",
+              "Comprehensive UX Research & User Personas",
+              "Complete Design System & Component Library"
+            ],
+            icon: <FaFigma className="w-12 h-12 text-pink-400" />,
+            accent: "from-[#ff5f6d]/70 via-[#ffc371]/60 to-transparent"
+          },
+          {
+            title: "Build with Precision",
+            description:
+              "Our agile development brings your vision to life with clean, scalable code for both web and mobile platforms.",
+            bullets: [
+              "Responsive Web & Native Mobile Applications",
+              "Source Code Repository & Technical Documentation",
+              "CI/CD Pipeline for Automated Deployments"
+            ],
+            icon: <FaReact className="w-12 h-12 text-cyan-300" />,
+            accent: "from-[#00c6ff]/70 via-[#0072ff]/60 to-transparent"
+          },
+          {
+            title: "Scale with Confidence",
+            description:
+              "We deploy on robust cloud infrastructure, ensuring your platform is secure, performant, and ready to grow with your business.",
+            bullets: [
+              "Scalable Cloud Architecture (IaaS)",
+              "24/7 Performance & Security Monitoring",
+              "Disaster Recovery & Backup Plans"
+            ],
+            icon: <FaAws className="w-12 h-12 text-amber-200" />,
+            accent: "from-[#fbd786]/70 via-[#f7797d]/60 to-transparent"
+          }
+        ].map((item, idx) => (
+          <div
+            key={idx}
+            className="flex w-screen flex-shrink-0 items-center justify-center p-6 sm:p-8 lg:p-12"
+          >
+            <div className="relative max-w-xl w-full text-white rounded-3xl p-8 backdrop-blur-lg bg-white/5 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
+              <div
+                className={`absolute inset-0 rounded-3xl opacity-70 bg-gradient-to-br ${item.accent}`}
+              />
+              <div className="relative z-10 space-y-5">
+                <div>
+                  <p className="uppercase tracking-[0.25em] text-xs text-white/70 mb-2">
+                    Phase {idx + 1}
+                  </p>
+                  <h2 className="font-black text-3xl md:text-4xl text-white drop-shadow-lg">
+                    {item.title}
+                  </h2>
+                </div>
+
+                <p className="text-lg text-white/80 leading-relaxed">
+                  {item.description}
+                </p>
+
+                <h3 className="font-semibold text-xl text-white tracking-wide">
+                  Key Deliverables:
+                </h3>
+
+                <ul className="space-y-2">
+                  {item.bullets.map((bullet, bIdx) => (
+                    <li
+                      key={bIdx}
+                      className="flex items-start text-white/85 leading-relaxed"
+                    >
+                      <span className="w-2 h-2 mt-2 rounded-full bg-white/70 mr-3 shadow-[0_0_10px_rgba(255,255,255,0.7)]" />
+                      {bullet}
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="flex items-center gap-4 pt-4">{item.icon}</div>
+              </div>
+            </div>
+          </div>
+        ))}
+
+      </div>
+    </div>
+  </div>
+</div>
 		</section>
 	);
 }
