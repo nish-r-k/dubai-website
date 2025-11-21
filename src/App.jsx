@@ -12,6 +12,8 @@ import ScrollToTop from "./components/ScrollToTop";
 import Chatbot from "./components/Chatbot";
 import CareerDetails from "./components/CareerDetails";
 import Chat from "./components/Chat"
+import AdminLogin from "./admin/AdminLogin";
+import AdminDashboard from "./admin/AdminDashboard";
 const App = () => {
 	return (
 		<BrowserRouter>
@@ -27,6 +29,9 @@ const App = () => {
 				<Route path="/careers/:title" element={<CareerDetails />} />
 				<Route path="/impact" element={<Impact />}></Route>
 				<Route path="/digital-garden" element={<DigitalGarden />}></Route>
+
+				<Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
 			</Routes>
 			{/* <Chatbot/> */}
 			<Chat/>
