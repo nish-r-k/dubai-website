@@ -1,83 +1,32 @@
 const express = require("express");
 const cors = require("cors");
-const nodemailer = require("nodemailer");
 const bodyParser = require("body-parser");
+const mongoose = require("mongoose");
 require("dotenv").config();
+const URL=process.env.URL;
 
 const app = express();
-const port = process.env.PORT || 3001;
 
+
+// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/api/send-partnership-email", async (req, res) => {
-	const { name, company, email, proposal } = req.body;
-
-	const mail_user = process.env.MAIL_USER;
-	const mail_pass = process.env.MAIL_PASS;
-
-	const transporter = nodemailer.createTransport({
-		service: "gmail",
-		auth: {
-			user: mail_user,
-			pass: mail_pass,
-		},
-	});
-
-	const mailOptions = {
-		from: `"${name}" <${email}>`,
-		to: "hr@sisunitech.com",
-	// 	from: `"SisuNitech Website" <${mail_user}>`, //
-    // replyTo: email, // 
-		subject: `New Partnership Proposal from ${company}`,
-		html: `... (same email HTML as before) ...`,
-	};
-
-	try {
-		await transporter.sendMail(mailOptions);
-		res.status(200).json({ message: "Email sent successfully!" });
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error: "Failed to send email." });
+// Connect to MongoDB
+(async()=>{
+	try{
+		await mongoose.connect(`${process.env.MONGODB_URL}/${process.env.DB_NAME}`)
 	}
-});
-
-app.post("/api/send-general-email", async (req, res) => {
-	const { email, question } = req.body;
-
-	const mail_user = process.env.MAIL_USER;
-	const mail_pass = process.env.MAIL_PASS;
-
-	const transporter = nodemailer.createTransport({
-		service: "gmail",
-		auth: {
-			user: mail_user,
-			pass: mail_pass,
-		},
-	});
-
-	const mailOptions = {
-		from: `"${email}" <${email}>`,
-		to: "hr@sisunitech.com",
-		subject: `New General Question from ${email}`,
-		html: `
-          <h2>New General Question</h2>
-          <p><strong>From:</strong> ${email}</p>
-          <hr>
-          <h3>Question:</h3>
-          <p>${question.replace(/\n/g, "<br>")}</p>
-        `,
-	};
-
-	try {
-		await transporter.sendMail(mailOptions);
-		res.status(200).json({ message: "Email sent successfully!" });
-	} catch (error) {
-		console.error(error);
-		res.status(500).json({ error: "Failed to send email." });
+	catch(err){
+		console.error("Error connecting to MongoDB:", err)
+		throw err;
 	}
-});
+	console.log("Connected to MongoDB")		
+})()
+
+
 
 //predifined messages for chatbot
 const responses ={
@@ -102,7 +51,14 @@ app.post("/chat",(req,res)=>{
     res.json({reply})
 })
 
+// Routes
+app.use("/contactus", require("./routes/contactusRoutes"));
+app.use("/admin",require("./routes/adminRoutes"));
+app.use("/jobs", require("./routes/jobRoutes"));
 
+
+// Start the server
+const port = process.env.PORT;
 app.listen(port, () => {
 	console.log(`Server is running on port ${port}`);
 });
