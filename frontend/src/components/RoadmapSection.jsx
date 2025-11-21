@@ -1,4 +1,5 @@
 import { Search, PenTool, Rocket, Repeat } from "lucide-react";
+import React from "react";
 
 const roadmapPhases = [
 	{

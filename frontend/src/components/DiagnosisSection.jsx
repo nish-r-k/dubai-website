@@ -1,5 +1,7 @@
 import { Rocket, Aperture, ShieldCheck } from "lucide-react";
 import GoalCard from "./GoalCard";
+import React from "react";
+
 
 const goals = [
 	{
