@@ -38,24 +38,11 @@ export default function Navbar() {
     alt="Sisuni Infotech"
     className="h-14 w-14 object-contain"
   />
-
-  {/* <span className="text-xl sm:text-2xl font-semibold tracking-wide text-gray-800">
-    <span className="text-blue-400">isuni</span>
-    <span className="text-blue-800"> Infotech</span>
-  </span> */}
-  {/* <span className="text-xl sm:text-2xl font-semibold tracking-wide bg-gradient-to-r from-white via-blue-200 to-blue-600 text-transparent bg-clip-text drop-shadow">
-  isuni Infotech
-</span> */}
-{/* <span className="text-xl sm:text-2xl font-semibold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[#f8fafc] via-[#9ec5ff] to-[#1b3a8a] drop-shadow-[0_2px_6px_rgba(0,0,0,0.35)]">
-  isuni Infotech
-</span> */}
-<span className="text-xl sm:text-2xl font-semibold tracking-wide text-[#00438A] drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]">
-  isuni <span className="text-[#00438A]">Infotech</span>
+<span className="text-xl sm:text-2xl font-semibold tracking-wide text-[#0268C7] drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]">
+  isuni <span className="text-[#0268C7]">Infotech</span>
 </span>
 
-
-
-           
+       
           </Link>
 
           {/* Desktop Nav */}

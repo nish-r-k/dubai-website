@@ -52,7 +52,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="p-6">
+    <div className="p-10 pt-20">
       <h1 className="text-2xl font-semibold mb-6">Admin Dashboard</h1>
 
       {/* ADD JOB FORM */}

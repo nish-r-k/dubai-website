@@ -174,8 +174,10 @@ function BuildSection() {
   </h1>
 
   <div className="h-[200vh]">
-    <div className="sticky top-0 flex h-screen items-center overflow-hidden">
+
+	<div className="sticky top-0 flex h-screen items-center overflow-hidden">
       <div id="timeline-track" ref={trackRef} className="flex">
+ 
         {[
           {
             title: "Design with Insight",
@@ -186,8 +188,8 @@ function BuildSection() {
               "Comprehensive UX Research & User Personas",
               "Complete Design System & Component Library"
             ],
-            icon: <FaFigma className="w-12 h-12 text-pink-300" />,
-            accent: "from-[#fbe7ff]/85 via-[#ffc9de]/75 to-transparent"
+            icon: <FaFigma className="w-12 h-12 text-pink-400" />,
+            accent: "from-[#00c6ff]/30 via-[#0072ff]/20 to-transparent"
           },
           {
             title: "Build with Precision",
@@ -198,8 +200,8 @@ function BuildSection() {
               "Source Code Repository & Technical Documentation",
               "CI/CD Pipeline for Automated Deployments"
             ],
-            icon: <FaReact className="w-12 h-12 text-sky-200" />,
-            accent: "from-[#dff5ff]/85 via-[#9fd8ff]/70 to-transparent"
+            icon: <FaReact className="w-12 h-12 text-cyan-300" />,
+            accent: "from-[#00c6ff]/30 via-[#0072ff]/20 to-transparent"
           },
           {
             title: "Scale with Confidence",
@@ -211,16 +213,16 @@ function BuildSection() {
               "Disaster Recovery & Backup Plans"
             ],
             icon: <FaAws className="w-12 h-12 text-amber-200" />,
-            accent: "from-[#fff5d8]/85 via-[#ffe1b0]/70 to-transparent"
+            accent: "from-[#00c6ff]/30 via-[#0072ff]/20 to-transparent"
           }
         ].map((item, idx) => (
           <div
             key={idx}
             className="flex w-screen flex-shrink-0 items-center justify-center p-6 sm:p-8 lg:p-12"
           >
-            <div className="relative max-w-xl w-full text-white rounded-3xl p-8 backdrop-blur-xl bg-white/4 border border-white/15 shadow-[0_20px_60px_rgba(0,0,0,0.35)]">
+            <div className="relative max-w-xl w-full text-white rounded-3xl p-8 backdrop-blur-lg bg-white/5 border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)]">
               <div
-                className={`absolute inset-0 rounded-3xl opacity-80 bg-gradient-to-br ${item.accent}`}
+                className={`absolute inset-0 rounded-3xl opacity-70 bg-gradient-to-br ${item.accent}`}
               />
               <div className="relative z-10 space-y-5">
                 <div>
@@ -231,28 +233,33 @@ function BuildSection() {
                     {item.title}
                   </h2>
                 </div>
-                <p className="text-lg text-white/85 leading-relaxed">
+ 
+                <p className="text-lg text-white/80 leading-relaxed">
                   {item.description}
                 </p>
+ 
                 <h3 className="font-semibold text-xl text-white tracking-wide">
                   Key Deliverables:
                 </h3>
+ 
                 <ul className="space-y-2">
                   {item.bullets.map((bullet, bIdx) => (
                     <li
                       key={bIdx}
-                      className="flex items-start text-white/90 leading-relaxed"
+                      className="flex items-start text-white/85 leading-relaxed"
                     >
-                      <span className="w-2 h-2 mt-2 rounded-full bg-white/80 mr-3 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
+                      <span className="w-2 h-2 mt-2 rounded-full bg-white/70 mr-3 shadow-[0_0_10px_rgba(255,255,255,0.7)]" />
                       {bullet}
                     </li>
                   ))}
                 </ul>
+ 
                 <div className="flex items-center gap-4 pt-4">{item.icon}</div>
               </div>
             </div>
           </div>
         ))}
+ 
       </div>
     </div>
   </div>
