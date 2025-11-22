@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import SisuniImage from "../assets/Sisuni.png";
@@ -19,11 +20,22 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const handleLinkClick = (to) => {
-    if (to === "/services" && location.pathname === "/services") {
+    
+    if (location.pathname === to) {
       
       window.location.reload();
     } else {
       navigate(to);
+    }
+    setIsMenuOpen(false);
+  };
+
+  const handleContactClick = () => {
+    
+    if (location.pathname === "/contact") {
+      window.location.reload();
+    } else {
+      navigate("/contact");
     }
     setIsMenuOpen(false);
   };
@@ -34,15 +46,13 @@ export default function Navbar() {
         <div className="w-full max-w-7xl mx-auto bg-white/80 backdrop-blur-sm rounded-lg flex justify-between items-center py-1 px-6">
           <Link to="/" className="flex items-center space-x-2">
             <img
-    src={SisuniImage}
-    alt="Sisuni Infotech"
-    className="h-14 w-14 object-contain"
-  />
-<span className="text-xl sm:text-2xl font-semibold tracking-wide text-[#0268C7] drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]">
-  isuni <span className="text-[#0268C7]">Infotech</span>
-</span>
-
-       
+              src={SisuniImage}
+              alt="Sisuni Infotech"
+              className="h-14 w-14 object-contain"
+            />
+            <span className="text-xl sm:text-2xl font-semibold tracking-wide text-[#0268C7] drop-shadow-[0_1px_2px_rgba(255,255,255,0.7)]">
+              isuni <span className="text-[#0268C7]">Infotech</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
@@ -60,12 +70,12 @@ export default function Navbar() {
           </ul>
 
           <div className="hidden md:flex">
-            <Link
-              to="/contact"
+            <button
+              onClick={handleContactClick}
               className="text-gray-800 border-2 border-gray-800 rounded-md px-4 py-2 flex items-center gap-2"
             >
               Let's Talk <MoveRight size={14} />
-            </Link>
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,7 +87,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-     
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -104,13 +113,12 @@ export default function Navbar() {
                 </li>
               ))}
               <li className="pt-8">
-                <Link
-                  to="/contact"
+                <button
+                  onClick={handleContactClick}
                   className="text-white border-2 border-white rounded-md px-6 py-3 flex items-center gap-2 text-xl"
-                  onClick={toggleMenu}
                 >
                   Let's Talk <MoveRight size={18} />
-                </Link>
+                </button>
               </li>
             </ul>
           </motion.div>
