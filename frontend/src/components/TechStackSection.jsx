@@ -1,4 +1,6 @@
 import { FaReact, FaNodeJs, FaAws, FaFigma } from "react-icons/fa";
+import React from "react";
+
 
 const techMap = {
 	"Web Application Development": [
